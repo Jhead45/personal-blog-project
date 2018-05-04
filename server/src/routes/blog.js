@@ -38,5 +38,19 @@ router.post('/', (req, res) => {
     })
 });
 
+router.put('/:id', (req, res) => {
+    let id = req.params.id;
+    let row = {title: req.body.title, content: req.body.content};
+    console.log('this is the put reqeust router');
+    console.log(row);
+    blog.update(id, row) 
+    .then(blog => {
+        res.json(blog);
+        console.log(blog);
+    }).catch((err) => {
+        console.log(err);
+    })
+});
+
 
 export default router;

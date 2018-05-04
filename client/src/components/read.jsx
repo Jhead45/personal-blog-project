@@ -18,7 +18,7 @@ class Read extends Component {
             .then((result) => {
                 // console.log(result);
                 this.setState({ blogs: result });
-                console.log(this.state.blogs.id);
+                // console.log(this.state.blogs.id);
             })
             .catch((error) => console.log('Error'));
     }
@@ -28,8 +28,11 @@ class Read extends Component {
 
         return (
             <div>
-                <div className="mt-3 ml-3"><Link to="/"><button type="button" className="btn btn-dark btn-lg">View All Blogs</button></Link></div>
-                <div className='d-flex flex-column justify-content-center bg-secondary customMargin' id='heightID'>
+                <div className="mt-3 ml-3 text-center">
+                <Link to="/"><button type="button" className="btn btn-dark btn-lg mr-3">View All Blogs</button></Link>
+                <Link to={`/edit/${this.urlid}`}><button type="button" className="btn btn-dark btn-lg">Edit Blog</button></Link>
+                </div>
+                <div className='d-flex flex-column justify-content-center readColor customMargin' id='heightID'>
                     <div className='display-4 text-center height100'>{this.state.blogs.title}</div>
                     <div className='text-center height500'>{this.state.blogs.content}</div>
                     </div>

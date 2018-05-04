@@ -4,6 +4,7 @@ import List from './list';
 import Home from './home';
 import Read from './read';
 import Write from './write';
+import Edit from './edit';
 
 class App extends Component {
 
@@ -16,6 +17,7 @@ class App extends Component {
                         <Route exact path="/list" component={List} />
                         <Route exact path="/write" component={Write} />
                         <Route exact path="/read/:id" component={Read} />
+                        <Route exact path="/edit/:id" component={Edit} />
                     </Switch>
                 </Fragment>
             </Router>

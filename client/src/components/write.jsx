@@ -37,8 +37,8 @@ class Write extends Component {
       }
 
     render() {
-            console.log(this.state.content);
-            console.log(this.state.title);
+            // console.log(this.state.content);
+            // console.log(this.state.title);
         return (
             <div>
            
