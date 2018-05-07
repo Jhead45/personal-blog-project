@@ -29,12 +29,16 @@
     "file-loader": "^1.1.11",
     "morgan": "^1.9.0",
     "mysql": "^2.15.0",
+    "passport": "^0.4.0",
+    "passport-http-bearer": "^1.0.1",
+    "passport-local": "^1.0.0",
     "react": "^16.3.2",
     "react-dom": "^16.3.2",
     "react-router-dom": "^4.2.2",
     "react-svg-loader": "^2.1.0",
     "rimraf": "^2.6.2",
     "style-loader": "^0.21.0",
+    "uuid": "^3.2.1",
     "webpack": "^3.11.0"
   },
   "devDependencies": {
