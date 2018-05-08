@@ -2,7 +2,16 @@ import * as baseService from './base';
 
 let loggedIn = false;
 
+// function isLoggedIn() {
+//     console.log(loggedIn);
+//     return loggedIn;
+// }
+
 function isLoggedIn() {
+    if (localStorage.getItem('authtoken')) {
+        baseService.populateAuthToken();
+        loggedIn = true;
+    }
     return loggedIn;
 }
 
