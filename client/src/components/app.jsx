@@ -5,6 +5,11 @@ import Home from './home';
 import Read from './read';
 import Write from './write';
 import Edit from './edit';
+import Delete from './delete';
+import PrivateRoute from './auth/privateRoute';
+import Login from './auth/login';
+import Logout from './auth/logout';
+import AuthButton from './auth/authButton';
 
 class App extends Component {
 
@@ -12,12 +17,16 @@ class App extends Component {
         return (
             <Router>
                 <Fragment>
+                    <AuthButton />
                     <Switch>
                         <Route exact path="/" component={Home} />
                         <Route exact path="/list" component={List} />
-                        <Route exact path="/write" component={Write} />
+                        <PrivateRoute exact path="/write" component={Write} />
                         <Route exact path="/read/:id" component={Read} />
-                        <Route exact path="/edit/:id" component={Edit} />
+                        <PrivateRoute exact path="/edit/:id" component={Edit} />
+                        <PrivateRoute exact path='/delete/:id' component={Delete} />
+                        <Route path="/login" component={Login} />
+                        <Route path="/logout" component={Logout} />
                     </Switch>
                 </Fragment>
             </Router>

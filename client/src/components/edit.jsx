@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { render } from 'react-dom';
 import { Link } from "react-router-dom";
+import * as blogService from '../services/blog';
+
 
 
 class Edit extends Component {
@@ -10,15 +12,14 @@ class Edit extends Component {
             title: '',
             content: ''
           };
-        this.urlId = this.props.match.params.id;
-        // console.log(this.urlId);
+        this.id = this.props.match.params.id;
+        // console.log(this.id);
     }
 
     componentDidMount() {
-        const url = `/api/blog/${this.urlId}`;
+        let id = `${this.id}`;
 
-        fetch(url)
-            .then((result) => result.json())
+        blogService.one(id)
             .then((result) => {
                 this.setState({ title: result.title, content: result.content  });
                 // console.log(this.state.title);
@@ -36,15 +37,12 @@ class Edit extends Component {
     handleForm(event, title, content) {
         event.preventDefault();
     
-        const url = `/api/blog/${this.urlId}`;
+        let id = `${this.id}`;
         
-        fetch(url, {
-            method: 'PUT', 
-            body: JSON.stringify({title, content}), 
-            headers: new Headers({
-              'Content-Type': 'application/json; charset=utf-8'
-            })
-          }).then(res => console.log('Success!'))
+        blogService.update(id, this.state)
+          .then(res => {
+            this.props.history.replace(`/read/${this.id}`);
+          })
           .catch(error => console.error('Error'))
         
       }
@@ -57,7 +55,8 @@ class Edit extends Component {
                    
             <div className='text-right'>
             <h1 className='display-3' id='writeBlog'>Edit Blog!</h1>
-            <Link to={`/read/${this.urlId}`}><button type="button" className="btn btn-dark btn-lg mt-2 mr-3">Go Back</button></Link>
+            <Link to="/"><button type="button" className="btn btn-dark btn-lg mt-2 mr-5">Go Back</button></Link>
+
         </div>
         <form
           className="d-flex justify-content-center mb-3 form-control-lg"
@@ -76,7 +75,7 @@ class Edit extends Component {
             >
           </textarea>
 
-          <button className="bg-dark text-warning mt-1" type="submit">Post Blog</button>
+          <button className="bg-dark mt-1 text-white" type="submit">Post Blog</button>
           </div>
         </form>
       </div>  

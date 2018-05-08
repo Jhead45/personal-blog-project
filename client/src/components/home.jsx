@@ -3,6 +3,8 @@ import { render } from 'react-dom';
 import List from './list';
 import Write from './write';
 import { Link } from "react-router-dom";
+import * as blogService from '../services/blog';
+
 
 
 class Home extends Component {
@@ -13,8 +15,7 @@ class Home extends Component {
     componentDidMount() {
         const url = '/api/blog';
 
-        fetch(url)
-            .then((result) => result.json())
+        blogService.all(url)
             .then((result) => {
                 // console.log(result);
                 this.setState({ blogs: result });

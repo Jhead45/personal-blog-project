@@ -71,3 +71,8 @@ table {
 .readColor {
     background-color: #d6d8db;
 }
+
+.wordBreak {
+    word-break: keep-all;
+}
+

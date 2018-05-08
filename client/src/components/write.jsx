@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { render } from 'react-dom';
 import { Link } from "react-router-dom";
+import * as blogService from '../services/blog';
+
 
 
 class Write extends Component {
@@ -21,19 +23,14 @@ class Write extends Component {
       }
 
     handleForm(event, title, content) {
-        // event.preventDefault();
+        event.preventDefault();
     
-        const url = '/api/blog';
         
-        fetch(url, {
-            method: 'POST', 
-            body: JSON.stringify({title, content}), 
-            headers: new Headers({
-              'Content-Type': 'application/json; charset=utf-8'
-            })
-          }).then(res => console.log('Success!'))
+        blogService.insert(this.state)
+          .then(res => {
+            this.props.history.replace(`/`);
+          })
           .catch(error => console.error('Error'))
-        
       }
 
     render() {
@@ -42,11 +39,10 @@ class Write extends Component {
         return (
             <div>
            
-                {/* <h1 className='display-3' id='writeBlog'>Write a Blog!</h1> */}
             
                 <div className='text-right'>
                 <h1 className='display-3' id='writeBlog'>Write a Blog!</h1>
-                <Link to="/"><button type="button" className="btn btn-dark btn-lg mt-2 mr-3">Go Back</button></Link>
+                <Link to="/"><button type="button" className="btn btn-dark btn-lg mt-2 mr-5">Go Back</button></Link>
             </div>
             <form
               className="d-flex justify-content-center mb-3 form-control-lg"
@@ -64,7 +60,7 @@ class Write extends Component {
                 onChange={(event) => this.onInputChange2(event.target.value)}>
               </textarea>
   
-              <button className="bg-dark text-warning mt-1" type="submit">Post Blog</button>
+              <button className="bg-dark text-white mt-1" type="submit">Post Blog</button>
               </div>
             </form>
           </div>        )

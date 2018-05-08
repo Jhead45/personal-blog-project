@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { render } from 'react-dom';
 import { Link } from "react-router-dom";
+import * as blogService from '../services/blog';
+
 
 
 class Read extends Component {
@@ -8,13 +10,12 @@ class Read extends Component {
         super(props);
         this.state = { blogs: [] };
         // console.log(props.match.params.id);
-        this.urlid = props.match.params.id;
+        this.id = props.match.params.id;
     }
     componentDidMount() {
-        const url = `/api/blog/${this.urlid}`;
+        let id = `${this.id}`;
 
-        fetch(url)
-            .then((result) => result.json())
+        blogService.one(id)
             .then((result) => {
                 // console.log(result);
                 this.setState({ blogs: result });
@@ -30,11 +31,13 @@ class Read extends Component {
             <div>
                 <div className="mt-3 ml-3 text-center">
                 <Link to="/"><button type="button" className="btn btn-dark btn-lg mr-3">View All Blogs</button></Link>
-                <Link to={`/edit/${this.urlid}`}><button type="button" className="btn btn-dark btn-lg">Edit Blog</button></Link>
+                <Link to={`/edit/${this.id}`}><button type="button" className="btn btn-dark btn-lg mr-3">Edit Blog</button></Link>
+                <Link to={`/delete/${this.id}`}><button type="button" className="btn btn-dark btn-lg">Delete Blog</button></Link>
+
                 </div>
                 <div className='d-flex flex-column justify-content-center readColor customMargin' id='heightID'>
                     <div className='display-4 text-center height100'>{this.state.blogs.title}</div>
-                    <div className='text-center height500'>{this.state.blogs.content}</div>
+                    <div className='text-center height500 wordBreak'>{this.state.blogs.content}</div>
                     </div>
                 </div>
             

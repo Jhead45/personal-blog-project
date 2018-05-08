@@ -52,5 +52,15 @@ router.put('/:id', (req, res) => {
     })
 });
 
+router.delete('/:id', (req, res) => {
+    let id = req.params.id;
+    blog.delete(id)
+    .then((result) => {
+        res.send('success');
+    }).catch((err) => {
+        console.log(err);
+    })
+});
+
 
 export default router;
