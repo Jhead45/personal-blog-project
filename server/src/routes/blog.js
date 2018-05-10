@@ -27,7 +27,8 @@ router.get('/:id', (req, res) => {
 });
 
 router.post('/', (req, res) => {
-    let row = {title: req.body.title, content: req.body.content};
+    let row = {title: req.body.title, content: req.body.content, authorid: req.body.authorid};
+    console.log(typeof req.body.authorid);
     console.log('posting a new blog');
     console.log(row);
     blog.insert(row)

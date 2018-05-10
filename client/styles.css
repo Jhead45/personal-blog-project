@@ -63,8 +63,6 @@ table {
     display: inline;
     font-weight: 700;
     text-shadow: -1px 0 black, 0 6px black, 4px 0 black, 0 -1px black;
-    margin-right: 50%;
-    text-align: left !important;
 
 }
 
@@ -83,3 +81,23 @@ table {
     align-items: center;
     color: white;
 }
+
+.moveBtn {
+    text-align: center;
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.forBorder {
+    display: block;
+    border-style: solid;
+    border-width: 1px;
+    border-color: black;
+    width: 600px;
+}
+

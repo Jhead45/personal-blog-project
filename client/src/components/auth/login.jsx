@@ -61,8 +61,9 @@ class Login extends Component {
 
        return (
            <Fragment>
-                <p>You must be logged in to view this page.</p>
-                <form onSubmit={(e) => this.login(e)}>
+                <p className='text-center mt-5'>You must be logged in to view this page.</p>
+                <form className='form'
+                onSubmit={(e) => this.login(e)}>
                     <div className="form-group">
                         <label htmlFor="email">Email</label>
                         <input id="email" className="form-control" type="email" onChange={(e) => this.handleEmailChange(e.target.value)} required /> 

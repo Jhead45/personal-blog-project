@@ -30,6 +30,15 @@ function checkLogin() {
     }
 }
 
+function checkUser() {
+    return me()
+    .then((author) => {
+        return author.id;
+    }).catch((err) => {
+        console.log(err);
+    });
+}
+
 function login(email, password) {
     return baseService.makeFetch('/api/auth/login', {
         method: 'POST',
@@ -77,4 +86,4 @@ function signup(name, email, password) {
     })
 }
 
-export { isLoggedIn, checkLogin, login, logout, signup };
+export { isLoggedIn, checkLogin, checkUser, login, logout, signup };

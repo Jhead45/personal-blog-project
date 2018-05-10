@@ -9,7 +9,11 @@ import { Link } from "react-router-dom";
 class Signup extends Component {
     constructor(props) {
         super(props);
-        this.state = ''
+        this.state = {
+          name: '',
+          email: '',
+          password: ''
+        }
             
 
     }
@@ -42,36 +46,31 @@ class Signup extends Component {
         console.log(this.state.email);
         console.log(this.state.password);
         return (
-            <div>
-                   
-            <div className='text-right'>
-            <Link to="/"><button type="button" className="btn btn-dark btn-lg mt-2 mr-5">Go Back</button></Link>
-        </div>
-        <h1 className='text-center'>Create User!</h1>
+        <div className='form'>        
+        <h1 className='display-3 font-weight-bold'>Create User!</h1>
         <form
-          className="d-flex justify-content-center mb-3 form-control-lg"
+          className="form-control-lg"
           onSubmit={(event) => this.handleForm(event, this.state.name, this.state.email, this.state.password)}
         >
-        <div className='form-group'>
-          <input className='d-block w-100 trBorder'
+          <input className='forBorder'
             placeholder='name'
             value={this.state.name}
             onChange={(event) => this.onInputChange(event.target.value)}
           />
-          <input className='d-block trBorder'
+          <input className='forBorder'
             placeholder='email address'
             value={this.state.email}
             onChange={(event) => this.onInputChange2(event.target.value)}
           />
-          <input className='d-block trBorder'
+          <input className='forBorder'
             placeholder='password'
+            type='password'
             value={this.state.password}
             onChange={(event) => this.onInputChange3(event.target.value)}
           />
           
 
-          <button className="bg-dark mt-1 text-white" type="submit">Submit</button>
-          </div>
+          <button className="btn-primary btn-block text-white border-dark border-4" type="submit">Submit</button>
         </form>
       </div>  
         )

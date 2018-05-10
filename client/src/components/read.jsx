@@ -30,7 +30,6 @@ class Read extends Component {
         return (
             <div>
                 <div className="mt-3 ml-3 text-center">
-                <Link to="/"><button type="button" className="btn btn-dark btn-lg mr-3">View All Blogs</button></Link>
                 <Link to={`/edit/${this.id}`}><button type="button" className="btn btn-dark btn-lg mr-3">Edit Blog</button></Link>
                 <Link to={`/delete/${this.id}`}><button type="button" className="btn btn-dark btn-lg">Delete Blog</button></Link>
 

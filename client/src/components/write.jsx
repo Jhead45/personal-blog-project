@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { render } from 'react-dom';
 import { Link } from "react-router-dom";
 import * as blogService from '../services/blog';
-
+import { checkUser } from '../services/user';
 
 
 class Write extends Component {
@@ -10,8 +10,22 @@ class Write extends Component {
         super(props);
         this.state = {
             title: "",
-            content: ""
+            content: "",
+            authorid: ""
           };
+    }
+
+    componentDidMount() {
+
+      checkUser()
+      .then((res) => {
+        console.log(typeof res);
+        this.setState({ authorid: res });
+        // console.log(res);
+      })
+      .catch((err) => {
+        console.log(err);
+      })
     }
 
     onInputChange(value) {
@@ -22,12 +36,13 @@ class Write extends Component {
         this.setState({ content: value });
       }
 
-    handleForm(event, title, content) {
+    handleForm(event, title, content, authorid) {
         event.preventDefault();
     
         
         blogService.insert(this.state)
           .then(res => {
+            console.log(this.state);
             this.props.history.replace(`/`);
           })
           .catch(error => console.error('Error'))
@@ -40,13 +55,12 @@ class Write extends Component {
             <div>
            
             
-                <div className='text-right'>
+                <div className='text-center'>
                 <h1 className='display-3' id='writeBlog'>Write a Blog!</h1>
-                <Link to="/"><button type="button" className="btn btn-dark btn-lg mt-2 mr-5">Go Back</button></Link>
             </div>
             <form
               className="d-flex justify-content-center mb-3 form-control-lg"
-              onSubmit={(event) => this.handleForm(event, this.state.title, this.state.content)}
+              onSubmit={(event) => this.handleForm(event, this.state.title, this.state.content, this.state.authorid)}
             >
             <div className='form-group'>
               <input className='d-block w-100 trBorder'

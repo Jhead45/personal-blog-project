@@ -53,10 +53,8 @@ class Edit extends Component {
         return (
             <div>
                    
-            <div className='text-right'>
+            <div className='text-center'>
             <h1 className='display-3' id='writeBlog'>Edit Blog!</h1>
-            <Link to="/"><button type="button" className="btn btn-dark btn-lg mt-2 mr-5">Go Back</button></Link>
-
         </div>
         <form
           className="d-flex justify-content-center mb-3 form-control-lg"

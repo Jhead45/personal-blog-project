@@ -2,11 +2,13 @@ import { Router } from 'express';
 import blogRouter from './blog';
 import usersRouter from './users';
 import authRouter from './auth';
+import stripeDonationsRouter from './stripeDonations';
 import { isLoggedIn, tokenMiddleware } from '../middleware/auth.mw';
 
 let router = Router();
 
 router.use('/auth', authRouter);
+router.use('/donate', stripeDonationsRouter);
 
 router.route('*')
     .post(tokenMiddleware, isLoggedIn)
