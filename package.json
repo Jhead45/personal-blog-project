@@ -19,14 +19,17 @@
   "license": "ISC",
   "dependencies": {
     "babel-cli": "^6.26.0",
-    "babel-core": "^6.26.0",
+    "babel-core": "^6.26.3",
     "babel-loader": "^7.1.4",
     "babel-polyfill": "^6.26.0",
     "babel-preset-env": "^1.6.1",
     "babel-preset-react": "^6.24.1",
+    "bcrypt": "^2.0.1",
     "css-loader": "^0.28.11",
     "express": "^4.16.3",
     "file-loader": "^1.1.11",
+    "hoek": "^5.0.3",
+    "moment": "^2.22.1",
     "morgan": "^1.9.0",
     "mysql": "^2.15.0",
     "passport": "^0.4.0",
@@ -39,10 +42,11 @@
     "rimraf": "^2.6.2",
     "style-loader": "^0.21.0",
     "uuid": "^3.2.1",
-    "webpack": "^3.11.0"
+    "webpack": "^4.8.1"
   },
   "devDependencies": {
     "concurrently": "^3.5.1",
-    "nodemon": "^1.17.3"
+    "nodemon": "^1.17.3",
+    "webpack-cli": "^2.1.3"
   }
 }

@@ -63,4 +63,18 @@ function me() {
     return baseService.get('/api/users/me');
 }
 
-export { isLoggedIn, checkLogin, login, logout };
+function signup(name, email, password) {
+    return baseService.makeFetch('/api/auth/signup', {
+        method: 'POST',
+        body: JSON.stringify({ name, email, password }),
+        headers: new Headers({
+            'Content-Type': 'application/json'
+        })
+    }).then((result) => {
+        console.log(result);
+    }).catch((err) => {
+        console.log(err);
+    })
+}
+
+export { isLoggedIn, checkLogin, login, logout, signup };

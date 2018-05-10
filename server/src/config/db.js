@@ -15,7 +15,7 @@ async function executeQuery(sql, args = []) {
 
 function callProcedure(procedureName, args = []) {
     let placeholders = generatePlaceholders(args);
-    let callString = `CALL ${procedureName}(${placeholders});`; // CALL GetChirps();, or CALL InsertChirp(?,?,?);
+    let callString = `CALL ${procedureName}(${placeholders});`; 
     return executeQuery(callString, args);
 }
 
