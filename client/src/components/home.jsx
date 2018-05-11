@@ -29,9 +29,6 @@ class Home extends Component {
         return (
             <div>
                 <div className='display-1' id='pageTitle'>Blog Spot</div>
-                <div className='text-right mr-5'>
-                    <Link to="/write"><button type="button" className="btn btn-dark btn-lg mb-2">Write Blog</button></Link>
-                </div>
                 <div className="d-flex justify-content-center">
                     <table className="table w-75 table-secondary">
                         <tbody>

@@ -21,9 +21,8 @@ class App extends Component {
             <Router>
                 <Fragment>
                     <div className='d-flex justify-content-center align-items-center'>
-                    <Link className="btn btn-dark btn-lg mt-3 ml-3 text-white" to="/">Home</Link>
-                    <AuthButton />
-                    <Link className="btn btn-dark btn-lg mt-3 ml-3 text-white" to="/donate">Donate</Link>
+                        <AuthButton />
+                        <Link className="btn btn-dark btn-lg mt-3 ml-3 text-white" to="/donate">Donate</Link>
                     </div>
                     <Switch>
                         <Route exact path="/" component={Home} />

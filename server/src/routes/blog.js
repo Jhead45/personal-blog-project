@@ -17,6 +17,7 @@ router.get('/', (req, res) => {
 
 router.get('/:id', (req, res) => {
     let id = req.params.id;
+    console.log(id);
     blog.getOne(id) 
     .then(blog => {
         res.json(blog);
