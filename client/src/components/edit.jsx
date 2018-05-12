@@ -11,15 +11,12 @@ class Edit extends Component {
         this.state = {
             title: '',
             content: '',
-            authorid: '',
-            userid: ''
+            authorid: ''
         };
-        this.id = this.props.match.params.id;
-        // console.log(this.id);
     }
 
     componentDidMount() {
-        let id = `${this.id}`;
+        let id = `${this.props.blogid}`;
 
         blogService.one(id).then((result) => {
           console.log(result);
@@ -27,14 +24,6 @@ class Edit extends Component {
         }).catch((err) => {
             console.log(err);
         });
-
-        userService.checkUser()
-        .then((res) => {
-          this.setState({ userid: res });
-        })
-        .catch((err) => {
-          console.log(err);
-        })
     }
 
     onInputChange(value) {
@@ -50,18 +39,16 @@ class Edit extends Component {
 
         // console.log(this.state.userid);
         // console.log(this.state.authorid);
-        if(this.state.userid === this.state.authorid) {
-        let id = `${this.id}`;
+        if(this.props.userid === this.props.authorid) {
+        let id = `${this.props.blogid}`;
         blogService
             .update(id, this.state)
             .then((res) => {
-                this.props.history.replace(`/read/${this.id}`);
+                location.reload();
             })
             .catch((error) => console.error('Error'));
 
-        } else {
-            alert('WARNING: You do not have access to edit another Author\'s Post!');
-        }
+        } 
     }
 
     render() {

@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { render } from 'react-dom';
-import { Link } from 'react-router-dom';
 import * as blogService from '../services/blog';
 
 
@@ -8,32 +7,29 @@ class Delete extends Component {
     constructor(props) {
         super(props);
   
-        this.id = this.props.match.params.id;
+        this.id = this.props.blogid;
     }
 
     componentDidMount() {
         let id = `${this.id}`;
 
-        let confirmedDelete = confirm('Are you sure?');
-        console.log(confirmedDelete);
-
-        if (confirmedDelete) {
+        if(this.props.userid === this.props.authorid) {
             blogService.destroy(id)
             .then((result) => {
-                this.props.history.replace('/');
+                console.log('Delete Success!');
             }).catch((err) => {
                 console.log(err);
-            });            
-        } else {
-            this.props.history.replace(`/read/${this.id}`);
-        }
-    
-
+            });    
+        }     
     }
 
     render() {
 
-        return <div />;
+        return (
+        <div className='welcomeP'>
+            <h1>You have succesfully Deleted Your Post!</h1>
+            <p>When you leave this page you will be unable to return.</p>
+        </div>)
     }
 }
 
