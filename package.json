@@ -29,6 +29,7 @@
     "express": "^4.16.3",
     "file-loader": "^1.1.11",
     "hoek": "^5.0.3",
+    "mailgun-js": "^0.18.0",
     "moment": "^2.22.1",
     "morgan": "^1.9.0",
     "mysql": "^2.15.0",

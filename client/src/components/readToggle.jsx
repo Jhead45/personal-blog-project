@@ -2,6 +2,7 @@ import React, { Component, Fragment } from 'react';
 import { render } from 'react-dom';
 import { Link } from 'react-router-dom';
 import * as userService from '../services/user';
+import Delete from './delete';
 
 class ReadToggle extends Component {
     constructor(props) {
@@ -22,6 +23,7 @@ class ReadToggle extends Component {
         let blogid = this.props.blogid;
         console.log(this.props.authorid);
         if (this.props.authorid === this.state.userid) {
+            <Delete userid={this.state.userid} />
              return (
                 <Fragment>
                     <Link className="btn btn-dark btn-lg mr-3 text-white" to={`/edit/${blogid}`}>Edit Blog</Link>

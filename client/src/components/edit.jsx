@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import { render } from 'react-dom';
 import { Link } from 'react-router-dom';
 import * as blogService from '../services/blog';
+import * as userService from '../services/user';
+
 
 class Edit extends Component {
     constructor(props) {
@@ -9,6 +11,8 @@ class Edit extends Component {
         this.state = {
             title: '',
             content: '',
+            authorid: '',
+            userid: ''
         };
         this.id = this.props.match.params.id;
         // console.log(this.id);
@@ -19,9 +23,18 @@ class Edit extends Component {
 
         blogService.one(id).then((result) => {
           console.log(result);
-            this.setState({ title: result.title, content: result.content });
-            // console.log(this.state.title);
+            this.setState({ title: result.title, content: result.content, authorid: result.authorid });
+        }).catch((err) => {
+            console.log(err);
         });
+
+        userService.checkUser()
+        .then((res) => {
+          this.setState({ userid: res });
+        })
+        .catch((err) => {
+          console.log(err);
+        })
     }
 
     onInputChange(value) {
@@ -35,14 +48,20 @@ class Edit extends Component {
     handleForm(event, title, content) {
         event.preventDefault();
 
+        console.log(this.state.userid);
+        console.log(this.state.authorid);
+        if(this.state.userid === this.state.authorid) {
         let id = `${this.id}`;
-
         blogService
             .update(id, this.state)
             .then((res) => {
                 this.props.history.replace(`/read/${this.id}`);
             })
             .catch((error) => console.error('Error'));
+
+        } else {
+            alert('WARNING: You do not have access to edit another Author\'s Post!');
+        }
     }
 
     render() {

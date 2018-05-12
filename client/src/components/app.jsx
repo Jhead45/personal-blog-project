@@ -13,6 +13,7 @@ import Login from './auth/login';
 import Logout from './auth/logout';
 import AuthButton from './auth/authButton';
 import Donate from './donate';
+import Contact from './contact';
 
 class App extends Component {
 
@@ -23,6 +24,7 @@ class App extends Component {
                     <div className='d-flex justify-content-center align-items-center'>
                         <AuthButton />
                         <Link className="btn btn-dark btn-lg mt-3 ml-3 text-white" to="/donate">Donate</Link>
+                        <Link className="btn btn-dark btn-lg mt-3 ml-3 text-white" to="/contact">Contact Us</Link>
                     </div>
                     <Switch>
                         <Route exact path="/" component={Home} />
@@ -36,6 +38,7 @@ class App extends Component {
                         <Route path="/login" component={Login} />
                         <Route path="/logout" component={Logout} />
                         <Route path="/donate" component={Donate} />
+                        <Route path="/contact" component={Contact} />
                     </Switch>
                 </Fragment>
             </Router>
