@@ -21,9 +21,8 @@ class ReadToggle extends Component {
       
     render() {
         let blogid = this.props.blogid;
-        console.log(this.props.authorid);
+        // console.log(this.props.authorid);
         if (this.props.authorid === this.state.userid) {
-            <Delete userid={this.state.userid} />
              return (
                 <Fragment>
                     <Link className="btn btn-dark btn-lg mr-3 text-white" to={`/edit/${blogid}`}>Edit Blog</Link>

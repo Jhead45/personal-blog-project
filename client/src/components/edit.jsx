@@ -48,8 +48,8 @@ class Edit extends Component {
     handleForm(event, title, content) {
         event.preventDefault();
 
-        console.log(this.state.userid);
-        console.log(this.state.authorid);
+        // console.log(this.state.userid);
+        // console.log(this.state.authorid);
         if(this.state.userid === this.state.authorid) {
         let id = `${this.id}`;
         blogService

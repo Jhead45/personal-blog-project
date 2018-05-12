@@ -30,7 +30,7 @@ class Home extends Component {
             <div>
                 <div className='display-1' id='pageTitle'>Blog Spot</div>
                 <div className="d-flex justify-content-center">
-                    <table className="table w-75 table-secondary">
+                    <table className="table w-75 table-secondary mt-3">
                         <tbody>
                             {this.state.blogs.map((blog) => (
                                 <List key={blog.id} value={blog} />

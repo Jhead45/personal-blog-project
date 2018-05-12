@@ -40,12 +40,10 @@ class Contact extends Component {
             <div className='container'>
                 <form onSubmit={ (e) => this.handleSubmit(e) }>
                     <div className='form-group mt-5 mb-0'>
-                        <label htmlFor='name'><h2 className='mb-0'>Name:</h2></label>
-                        <input onChange={ (e)  => this.handleName(e.target.value)} id='name' type='text' className='form-control' required />
+                        <input onChange={ (e)  => this.handleName(e.target.value)} placeholder='Name' id='name' type='text' className='form-control' required />
                     </div>
                     <div className='form-group mb-0'>
-                        <label htmlFor='email'><h2 className='mb-0'>Email Address:</h2></label>
-                        <input onChange={ (e)  => this.handleEmail(e.target.value)} id='email' type='email' className='form-control' required />
+                        <input onChange={ (e)  => this.handleEmail(e.target.value)} placeholder='Email Address' id='email' type='email' className='form-control' required />
                     </div>
                     <div className="form-group mb-0">
                         <textarea onChange={ (e)  => this.handleMessage(e.target.value)} cols='30' rows='10' class='form-control'></textarea>    

@@ -23,8 +23,8 @@ class App extends Component {
                 <Fragment>
                     <div className='d-flex justify-content-center align-items-center'>
                         <AuthButton />
-                        <Link className="btn btn-dark btn-lg mt-3 ml-3 text-white" to="/donate">Donate</Link>
-                        <Link className="btn btn-dark btn-lg mt-3 ml-3 text-white" to="/contact">Contact Us</Link>
+                        <Link className="btn btn-dark btn-lg mt-3 ml-2 text-white" to="/donate">Donate</Link>
+                        <Link className="btn btn-dark btn-lg mt-3 ml-2 text-white" to="/contact">Contact Us</Link>
                     </div>
                     <Switch>
                         <Route exact path="/" component={Home} />
