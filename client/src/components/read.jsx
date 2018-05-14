@@ -4,6 +4,8 @@ import { Link } from "react-router-dom";
 import ReadToggle from './readToggle';
 import * as blogService from '../services/blog';
 
+// import CreatedBy from './createdBy';
+
 
 
 class Read extends Component {
@@ -20,7 +22,7 @@ class Read extends Component {
         blogService.one(id)
             .then((result) => {
                 this.setState({ blogs: result });
-                // console.log(this.state.blogs.id);
+                console.log(this.state.blogs);
             })
             .catch((error) => console.log('Error'));
     }
@@ -33,6 +35,7 @@ class Read extends Component {
                 </div>
                 <div className='d-flex flex-column justify-content-center readColor customMargin' id='heightID'>
                     <div className='display-4 text-center height100'>{this.state.blogs.title}</div>
+                    {/* <CreatedBy timestamp={this.state.blogs._created} authorid={this.state.blogs.authorid} /> */}
                     <div className='text-center height500 wordBreak'>{this.state.blogs.content}</div>
                 </div>
             </div>

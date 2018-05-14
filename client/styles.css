@@ -53,8 +53,11 @@ table {
 .height100 {
     height: 75px;
     border-width: 2px;
-    border-color: black;
-    border-style: solid;
+    background-color: royalblue;
+    color: yellow;
+    font-weight: 700;
+    /* border-color: black;
+    border-style: solid; */
 
 }
 

@@ -39,6 +39,10 @@ function checkUser() {
     });
 }
 
+function getAuthor(id) {
+    return baseService.get(`/api/auth/${id}`);
+}
+
 function login(email, password) {
     return baseService.makeFetch('/api/auth/login', {
         method: 'POST',
@@ -86,4 +90,4 @@ function signup(name, email, password) {
     })
 }
 
-export { isLoggedIn, checkLogin, checkUser, login, logout, signup };
+export { isLoggedIn, checkLogin, checkUser, login, logout, signup, getAuthor };

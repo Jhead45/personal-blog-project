@@ -11,6 +11,7 @@ let router = Router();
 router.use('/auth', authRouter);
 router.use('/donate', stripeDonationsRouter);
 router.use('/contact', contactRouter);
+
 router.route('*')
     .post(tokenMiddleware, isLoggedIn)
     .put(tokenMiddleware, isLoggedIn)

@@ -38,4 +38,18 @@ router.post('/signup', (req, res) => {
     })
 })
 
+router.get('/:id', (req, res) => {
+    let id = req.params.id;
+    console.log(id);
+    authors.getOne(id) 
+    .then(author => {
+        res.json(author);
+        console.log(author);
+    }).catch((err) => {
+        console.log(err);
+    })
+});
+
+
+
 export default router;
