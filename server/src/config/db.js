@@ -4,10 +4,10 @@ import { config } from '../config';
 
 let pool = mysql.createPool({
     connectionLimit: 10,
-    host: process.env.DB_HOST,
-    user: process.env.DB_USER,
-    password: process.env.DB_PASSWORD,
-    database: process.env.DATABASE
+    host: config.DB_HOST,
+    user: config.DB_USER,
+    password: config.DB_PASSWORD,
+    database: config.DATABASE
 });
 
 async function executeQuery(sql, args = []) {
