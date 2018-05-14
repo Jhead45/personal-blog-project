@@ -14,6 +14,22 @@ class Table {
         return results[0];
     }
 
+    async getAuthor(id) {
+        let sql = `
+        select 
+            b.id, 
+            b.title, 
+            b.content,
+            b._created,
+            b.authorid, 
+            a.name
+        from blog b 
+        join authors a on b.authorid = a.id
+        where b.id = ${id};`;
+        let results = await executeQuery(sql, [id]);
+        return results[0];
+    }
+
     getAll() {
         let sql = `SELECT * FROM ${this.tableName}`;
         return executeQuery(sql);

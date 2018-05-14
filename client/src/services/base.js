@@ -61,6 +61,7 @@ function json(url, method = 'GET', payload = {}) {
 }
 
 function get(url) {
+    console.log(url);
     return json(url);
 }
 

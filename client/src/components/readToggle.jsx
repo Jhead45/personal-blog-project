@@ -28,13 +28,13 @@ class ReadToggle extends Component {
     handleDelete() {
 
         let confirmedDelete = confirm('Are you sure?');
-        console.log(confirmedDelete);
+        // console.log(confirmedDelete);
 
         if (confirmedDelete) {
             this.setState({ toggle: false })           
         } else {
-            console.log('Declined delete option');
-            console.log(this.props.blogid);
+            // console.log('Declined delete option');
+            // console.log(this.props.blogid);
         }
     }
 

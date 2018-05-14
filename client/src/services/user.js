@@ -40,6 +40,7 @@ function checkUser() {
 }
 
 function getAuthor(id) {
+    console.log(id);
     return baseService.get(`/api/auth/${id}`);
 }
 

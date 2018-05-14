@@ -8,6 +8,10 @@ function one(id) {
     return baseService.get(`/api/blog/${id}`);
 }
 
+function findAuthor(id) {
+    return baseService.get(`/api/blog/author/${id}`);
+}
+
 function insert(data) {
     return baseService.post('/api/blog', data);
 }
@@ -20,4 +24,4 @@ function destroy(id) {
     return baseService.destroy(`/api/blog/${id}`);
 }
 
-export { all, one, insert, update, destroy };
+export { all, one, findAuthor, insert, update, destroy };

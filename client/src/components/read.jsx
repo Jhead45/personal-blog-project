@@ -3,8 +3,7 @@ import { render } from 'react-dom';
 import { Link } from "react-router-dom";
 import ReadToggle from './readToggle';
 import * as blogService from '../services/blog';
-
-// import CreatedBy from './createdBy';
+import moment from 'moment';
 
 
 
@@ -16,15 +15,25 @@ class Read extends Component {
         this.id = props.match.params.id;
     }
 
-    componentWillMount() {
+
+
+    componentDidMount() {
+
         let id = `${this.id}`;
 
-        blogService.one(id)
+        blogService.findAuthor(id)
             .then((result) => {
+                console.log(result);
                 this.setState({ blogs: result });
-                console.log(this.state.blogs);
             })
             .catch((error) => console.log('Error'));
+    }
+
+    getDateTime() {
+        let time = this.state.blogs._created;
+        let formattedDate = moment(`${time}`).utc().format("dddd, MMMM Do, h:mm A")
+        return formattedDate;
+
     }
 
     render() {
@@ -34,9 +43,12 @@ class Read extends Component {
                 <ReadToggle blogid={this.id} authorid={this.state.blogs.authorid} />
                 </div>
                 <div className='d-flex flex-column justify-content-center readColor customMargin' id='heightID'>
-                    <div className='display-4 text-center height100'>{this.state.blogs.title}</div>
-                    {/* <CreatedBy timestamp={this.state.blogs._created} authorid={this.state.blogs.authorid} /> */}
-                    <div className='text-center height500 wordBreak'>{this.state.blogs.content}</div>
+                    <div className='display-4 text-center height100'>
+                    {this.state.blogs.title}</div>
+                    <div className='height500 wordBreak'>
+                    <p>Written By: {this.state.blogs.name} on {this.getDateTime()}</p>
+
+                    {this.state.blogs.content}</div>
                 </div>
             </div>
             

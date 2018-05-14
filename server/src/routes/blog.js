@@ -27,6 +27,16 @@ router.get('/:id', (req, res) => {
     })
 });
 
+router.get('/author/:id', (req, res) => {
+    let id = req.params.id;
+    blog.getAuthor(id) 
+    .then(blog => {
+        res.json(blog);
+    }).catch((err) => {
+        console.log(err);
+    })  
+})
+
 router.post('/', (req, res) => {
     let row = {title: req.body.title, content: req.body.content, authorid: req.body.authorid};
     console.log(typeof req.body.authorid);
