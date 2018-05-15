@@ -7,6 +7,7 @@ import Write from './write';
 import Edit from './edit';
 import Delete from './delete';
 import Signup from './signup';
+import ShowUser from './showUser';
 import Welcome from './welcome';
 import PrivateRoute from './auth/privateRoute';
 import Login from './auth/login';
@@ -21,11 +22,17 @@ class App extends Component {
         return (
             <Router>
                 <Fragment>
-                    <div className='d-flex justify-content-center align-items-center'>
+                    <nav className="navbar navbar-dark bg-dark">
+                    <AuthButton />
+                        <Link className="btn btn-dark btn-lg mt-3 ml-2 text-white" to="/donate">Donate</Link>
+                        <Link className="btn btn-dark btn-lg mt-3 ml-2 text-white" to="/contact">Contact Us</Link>
+                    </nav>
+                    {/* <div className='d-flex justify-content-center align-items-center'>
                         <AuthButton />
                         <Link className="btn btn-dark btn-lg mt-3 ml-2 text-white" to="/donate">Donate</Link>
                         <Link className="btn btn-dark btn-lg mt-3 ml-2 text-white" to="/contact">Contact Us</Link>
-                    </div>
+                    </div> */}
+                    <ShowUser />
                     <Switch>
                         <Route exact path="/" component={Home} />
                         <Route exact path="/list" component={List} />

@@ -39,6 +39,16 @@ function checkUser() {
     });
 }
 
+function checkName() {
+    return me()
+    .then((author) => {
+        return author.name;
+    }).catch((err) => {
+        console.log(err);
+    });
+}
+
+
 function getAuthor(id) {
     console.log(id);
     return baseService.get(`/api/auth/${id}`);
@@ -91,4 +101,4 @@ function signup(name, email, password) {
     })
 }
 
-export { isLoggedIn, checkLogin, checkUser, login, logout, signup, getAuthor };
+export { isLoggedIn, checkLogin, checkUser, login, logout, signup, getAuthor, checkName };
