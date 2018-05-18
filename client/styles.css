@@ -111,3 +111,7 @@ table {
     color: yellow;
     padding-left: 1px;
 }
+
+nav {
+    background-color: black;
+}

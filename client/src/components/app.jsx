@@ -22,10 +22,10 @@ class App extends Component {
         return (
             <Router>
                 <Fragment>
-                    <nav className="navbar navbar-dark bg-dark">
+                    <nav className="navbar navbar-dark">
                     <AuthButton />
-                        <Link className="btn btn-dark btn-lg mt-3 ml-2 text-white" to="/donate">Donate</Link>
-                        <Link className="btn btn-dark btn-lg mt-3 ml-2 text-white" to="/contact">Contact Us</Link>
+                        <Link className="btn btn-lg mt-3 ml-2 text-white" to="/donate">Donate</Link>
+                        <Link className="btn btn-lg mt-3 ml-2 text-white" to="/contact">Contact Us</Link>
                     </nav>
                     {/* <div className='d-flex justify-content-center align-items-center'>
                         <AuthButton />
